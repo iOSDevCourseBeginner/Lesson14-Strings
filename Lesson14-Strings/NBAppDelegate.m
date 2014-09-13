@@ -40,15 +40,15 @@
     NSArray* array = [string componentsSeparatedByString:@"."];
     NSLog(@"%@", array);
     
-    NSMutableArray* arrayWithNSStrin = [[NSMutableArray alloc] init];
+    NSMutableArray* arrayWithNSString = [[NSMutableArray alloc] init];
     
     for (id element in array) {
         if ([element rangeOfString:@"NSString"].location != NSNotFound) {
-            [arrayWithNSStrin addObject:element];
+            [arrayWithNSString addObject:element];
         }
     }
     NSLog(@"-----------------------------------Student--------------------------------------------");
-    NSLog(@"%@", arrayWithNSStrin);
+    NSLog(@"%@", arrayWithNSString);
     
     //-------------------------------------------------------------------------------
     
