@@ -19,6 +19,8 @@
     //-------------------------------------------------------------------------------
     
     NSString* string = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eorum enim est haec querela, qui sibi cari sunt seseque diligunt. Cur ipse Pythagoras et Aegyptum lustravit et Persarum magos adiit? Luxuriam non reprehendit, modo sit vacua infinita cupiditate et timore. Ex rebus enim timiditas, non ex vocabulis nascitur. Erit enim mecum, si tecum erit. Ita graviter et severe voluptatem secrevit a bono. Often a better and easier alternative to making a subclass of NSString or of any other abstract, public class of a class cluster, for that matter—is object composition. This is especially the case when your intent is to add to the subclass metadata or some other attribute that is not essential to a string object. In object composition, you would have an NSString object as one instance variable of your custom class (typically a subclass of NSObject) and one or more instance variables that store the metadata that you want for the custom object. Then just design your subclass interface to include accessor methods for the embedded string object and the metadata. If the behavior you want to add supplements that of the existing class, you could write a category on NSString. Keep in mind, however, that this category will be in effect for all instances of NSString that you use, and this might have unintended consequences.";
+
+#pragma mark - Learner
     
     NSRange range = [string rangeOfString:@"NSString object as"];
     
@@ -40,6 +42,9 @@
     NSArray* array = [string componentsSeparatedByString:@"."];
     NSLog(@"%@", array);
     
+    
+#pragma mark - Student
+    
     NSMutableArray* arrayWithNSString = [[NSMutableArray alloc] init];
     
     for (id element in array) {
@@ -49,6 +54,26 @@
     }
     NSLog(@"-----------------------------------Student--------------------------------------------");
     NSLog(@"%@", arrayWithNSString);
+    
+    
+#pragma mark - Master
+    
+    NSMutableArray* arrayMaster = [[NSMutableArray alloc] init]; //Master array with reverse strings
+    NSMutableArray* arrayForReverse = [[NSMutableArray alloc] init]; //Array for reverse strings
+    NSMutableString* stringMaster = [[NSMutableString alloc] init];
+    
+    
+    for (NSString* element in arrayWithNSString) {
+        arrayForReverse = (NSMutableArray*) [element componentsSeparatedByString:@" "];
+        for (NSString* word in [arrayForReverse reverseObjectEnumerator]) {
+            [stringMaster appendFormat:@"%@ ", word];
+        }
+        [arrayMaster addObject:stringMaster];
+    }
+    
+    NSLog(@"-----------------------------------Master--------------------------------------------");    
+    NSLog(@"%@", arrayMaster);
+    
     
     //-------------------------------------------------------------------------------
     
